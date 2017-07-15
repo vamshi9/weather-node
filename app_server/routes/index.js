@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const request = require('request');
-const apiKey = '#';
+const apiKey = '0eab9b49723777a84912bb31a07a696a';
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { title: 'Weather' });
