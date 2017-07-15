@@ -2,6 +2,64 @@ doctype html
 html
   head
     title= title
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet',href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css')
+    link(rel='stylesheet',href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js')
   body
     block content
+    // Navigation & Intro
+    header
+      nav.navbar.fixed-top.navbar-toggleable-md.navbar-dark.scrolling-navbar
+        .container
+          button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          a.navbar-brand(href='#')
+            img.d-inline-block.align-top(src='http://lh3.ggpht.com/jgRxxSNZWjiG9pGQNIoE0F-9Xgn7BzvgeyCXb-55TnR7sixhfOsLStXcZLlMwPheaic', width='50px', alt='MDBootstrap')
+          #navbarNav.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+              li.nav-item
+                a.nav-link
+                  | Home
+                  span.sr-only (current)
+              li.nav-item
+                a.nav-link(href='https://github.com/vamshi9/weather-node',target='_blank') Github
+              li.nav-item
+                a.nav-link(href='https://codepen.io/frank-underwood/pen/PjXJNR',target='_blank') Codepen
+            ul.navbar-nav.nav-flex-icons
+              li.nav-item
+                a.nav-link(href='https://www.facebook.com/bachaneboina',target='_blank')
+                  i.fa.fa-facebook
+              li.nav-item
+                a.nav-link(href='https://twitter.com/bachaneboina27',target='_blank')
+                  i.fa.fa-twitter
+              li.nav-item
+                a.nav-link(href='https://www.instagram.com/vamshi.bachaneboina/',target='_blank')
+                  i.fa.fa-instagram
+      // Mask
+      .view.hm-black-strong
+        .full-bg-img.flex-center
+          .container
+            .white-text.text-center
+              h2 Weather
+              br
+              form.md-form(action='/', method='post')
+                input#form1.form-control(type='text', placeholder='Location',name='city',required)
+                button.btn.btn-default.btn-rounded.waves-effect(type='submit')
+                  span
+                    i.fa.fa-cloud(aria-hidden='true')
+                  |  Go!
+              br
+              - if(weather!==null)
+                    p= weather
+              - if(weather==null)
+                    p= error
+              br
+              br
+              p Fetching the weather data from OpenWeatherAPI using Node.js
+      // /.Mask
+    // /.Navigation & Intro
