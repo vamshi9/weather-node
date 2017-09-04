@@ -8,6 +8,7 @@ const request = require('request');
 var routes = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
 
+//create app
 var app = express();
 
 // view engine setup
